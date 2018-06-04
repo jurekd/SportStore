@@ -11,9 +11,9 @@ namespace SportsStore.Domain.Concrete
     public class EFDbContext : DbContext
 
     {
-        public EFDbContext()
+        public EFDbContext():base("EFDbContext")
         {
-            Database.SetInitializer<EFDbContext>(new CreateDatabaseIfNotExists<EFDbContext>());
+            Database.SetInitializer<EFDbContext>(new ProductDBInitializer());
 
         }
         public DbSet<Product> Products { get; set; }
